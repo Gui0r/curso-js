@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Recados</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid bg-primary text-white py-4 mb-4">
+        <div class="container">
+            <h1 class="display-4 text-center mb-0">
+                Mensagens
+            </h1>
+            <p class="text-center mb-0 opacity-75">Deixe e visualize recados de forma prática</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Formulário de Cadastro -->
+            <div class="col-lg-5 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-plus-circle-fill me-2"></i>
+                            Novo Recado
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="formRecado">
+                            <div class="mb-3">
+                                <label for="quemDeixou" class="form-label">
+                                    <i class="bi bi-person-fill text-primary"></i>
+                                    Quem deixou o recado *
+                                </label>
+                                <input type="text" class="form-control" id="quemDeixou" placeholder="Digite seu nome" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="paraQuem" class="form-label">
+                                    <i class="bi bi-person-check-fill text-info"></i>
+                                    Para quem é o recado *
+                                </label>
+                                <input type="text" class="form-control" id="paraQuem" placeholder="Digite o nome do destinatário" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="textoRecado" class="form-label">
+                                    <i class="bi bi-chat-text-fill text-warning"></i>
+                                    Texto do recado *
+                                </label>
+                                <textarea class="form-control" id="textoRecado" rows="4" placeholder="Digite sua mensagem aqui..." required></textarea>
+                                <div class="invalid-feedback"></div>
+                                <div class="form-text">
+                                    <span id="contadorCaracteres">0</span>/500 caracteres
+                                </div>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="bi bi-send-fill me-2"></i>
+                                    Deixar Recado
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de Recados -->
+            <div class="col-lg-7">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="bi bi-list-ul me-2"></i>
+                            Recados Cadastrados
+                        </h5>
+                        <span class="badge bg-light text-dark" id="totalRecados">0</span>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="listaRecados" class="list-group list-group-flush">
+                            <!-- Mensagem quando não há recados -->
+                            <div id="mensagemVazia" class="text-center py-5 text-muted">
+                                <i class="bi bi-inbox display-1 opacity-25"></i>
+                                <p class="mt-3 mb-0">Nenhum recado cadastrado ainda.</p>
+                                <small>Use o formulário ao lado para deixar o primeiro recado!</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão para limpar todos os recados -->
+                <div class="mt-3 text-end">
+                    <button id="btnLimparTodos" class="btn btn-outline-danger" style="display: none;">
+                        <i class="bi bi-trash-fill me-2"></i>
+                        Limpar Todos os Recados
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal fade" id="modalConfirmacao" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+                        Confirmar Ação
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="mensagemConfirmacao"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmar">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast para notificações -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastNotificacao" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <strong class="me-auto">Sistema de Recados</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="mensagemToast">
+                Recado cadastrado com sucesso!
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+
