@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 13 – Backend com PHP + MySQL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Aula 13 – Backend com PHP + MySQL</h1>
+  </header>
+  <main>
+    <!-- Copilot: gerar aqui instruções e exemplos de uso do endpoint -->
+    <section>
+      <h2>Exemplo de Endpoint</h2>
+      <p>GET <code>/usuarios</code> retorna todos os usuários.<br>
+      GET <code>/usuarios?id=1</code> retorna usuário específico.</p>
+      <pre><code>fetch('server.php?endpoint=usuarios')
+  .then(r => r.json())
+  .then(console.log);</code></pre>
+    </section>
+    <section>
+      <h2>Testar no Navegador</h2>
+      <button onclick="testarUsuarios()">Listar Usuários</button>
+      <ul id="usuarios"></ul>
+    </section>
+  </main>
+  <footer>
+    <small>Aula 13 – Backend PHP + MySQL</small>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

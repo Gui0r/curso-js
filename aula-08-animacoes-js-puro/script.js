@@ -36,7 +36,7 @@ btnContar.addEventListener('click', () => {
     n++;
     counter.textContent = n;
     if (n >= 100) clearInterval(interval);
-  }, 15);
+  }, 1000);
 });
 
 // Exercício 2: Slider de imagens animado

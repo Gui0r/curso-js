@@ -1,6 +1,7 @@
 # Mini Projeto – Dashboard de Animações (Anime.js)
 
 Este mini projeto é uma dashboard interativa onde o usuário pode configurar animações (tipo, duração, delay, easing, cor, etc.) e visualizar o resultado em tempo real. O programa gera automaticamente o código Anime.js correspondente à configuração escolhida.
+Criar um site como o animista.net, mas usando o anime.js como biblioteca, o site deve retornar o objeto para iniciar o anime.js
 
 ## Funcionalidades
 - Interface visual para configurar animações (movimento, escala, rotação, cor, opacidade, etc.)

@@ -33,3 +33,4 @@
 - [MDN CSS Animations](https://developer.mozilla.org/pt-BR/docs/Web/CSS/animation)
 - [MDN CSS Transitions](https://developer.mozilla.org/pt-BR/docs/Web/CSS/transition)
 - [CSS Tricks: Animations](https://css-tricks.com/almanac/properties/a/animation/)
+- [Animista](https://animista.net)

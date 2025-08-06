@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7fafc;
+  margin: 0;
+  color: #222;
+}
+header, footer {
+  background: #6366f1;
+  color: #fff;
+  text-align: center;
+  padding: 16px 0;
+}
+main {
+  max-width: 700px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 24px;
+}
+pre {
+  background: #f3f4f6;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  background: #fbbf24;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #222;
+}
+/* Copilot: personalize cores, bordas e fontes conforme desejar */
