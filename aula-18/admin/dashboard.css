@@ -1,0 +1,9 @@
+body { font-family: Arial, sans-serif; background: #f4f4f4; }
+#painel { max-width: 700px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #0001; }
+h2 { margin-top: 0; }
+#eventos-lista { margin: 20px 0; }
+.evento-card { background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; padding: 12px; margin-bottom: 10px; }
+.evento-card button { margin-right: 8px; }
+form { margin-bottom: 20px; }
+input, textarea { width: 100%; margin-bottom: 8px; padding: 7px; border: 1px solid #ccc; border-radius: 4px; }
+#logout { float: right; background: #e74c3c; color: #fff; border: none; padding: 7px 14px; border-radius: 4px; cursor: pointer; }

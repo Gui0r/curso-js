@@ -1,6 +1,6 @@
 // Teste de endpoint PHP
 function testarUsuarios() {
-  fetch('server.php?endpoint=usuarios')
+  fetch('http://localhost/server.php?endpoint=usuarios')
     .then(r => r.json())
     .then(data => {
       const ul = document.getElementById('usuarios');

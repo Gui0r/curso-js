@@ -12,7 +12,7 @@ function renderUsuarios(usuarios) {
 }
 
 function buscar() {
-  fetch('http://localhost/curso-js/aula-13-backend-php-e-mysql/server.php?endpoint=usuarios')
+  fetch('http://localhost/server.php?endpoint=usuarios')
     .then(r => r.json())
     .then(data => {
       let usuarios = data;
@@ -25,5 +25,8 @@ function buscar() {
     .catch(() => alert('Erro ao buscar usuários!'));
 }
 
-// Inicialização
-buscar();
+document.addEventListener('DOMContentLoaded', () => {
+  //criar sleep para esperar 5 segundos para chamar a função 
+  setTimeout(buscar, 5000);
+  //buscar();
+});

@@ -6,6 +6,12 @@ $user = 'root';
 $pass = '';
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+  header('Access-Control-Allow-Headers: Content-Type');
+  exit;
+}
 try {
   $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION

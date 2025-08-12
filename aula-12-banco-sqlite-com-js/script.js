@@ -7,7 +7,7 @@ const initDB = async () => {
   try {
     const SQL = await initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}` });
     db = new SQL.Database();
-    db.run('CREATE TABLE IF NOT EXISTS livros (titulo TEXT, autor TEXT, categoria TEXT)');
+    db.run('CREATE TABLE IF NOT EXISTS livros (id INT PRIMARY KEY, titulo TEXT, autor TEXT, categoria TEXT)');
     render();
   } catch (e) {
     alert('Erro ao inicializar o banco!');
@@ -21,7 +21,9 @@ const render = () => {
     if (res[0]) {
       res[0].values.forEach(livro => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${livro[0]}</td><td>${livro[1]}</td><td>${livro[2]}</td>`;
+        tr.innerHTML = `<td>${livro[1]}</td><td>${livro[2]}</td><td>${livro[3]}</td><td>
+          <button onclick="excluirLivro('${livro[0]}')">Excluir</button>
+        </td>`;
         tabela.appendChild(tr);
       });
     }
@@ -36,9 +38,17 @@ form.onsubmit = e => {
   const autor = document.getElementById('autor').value.trim();
   const categoria = document.getElementById('categoria').value.trim();
   if (!titulo || !autor || !categoria) return;
-  db.run('INSERT INTO livros VALUES (?, ?, ?)', [titulo, autor, categoria]);
+  const id = Math.floor(Math.random() * 1000000); // Gera um ID aleatório
+  db.run('INSERT INTO livros VALUES (?, ?, ?, ?)', [id, titulo, autor, categoria]);
   render();
   form.reset();
+};
+
+function excluirLivro(id) {
+  if (confirm(`Excluir o livro "${id}"?`)) {
+    db.run('DELETE FROM livros WHERE id = ?', [id]);
+    render();
+  }
 };
 
 // Inicialização

@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; background: #f4f4f4; }
+#painel { max-width: 700px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #0001; }
+h2 { margin-top: 0; }
+#inscricoes-lista { margin: 20px 0; }
+.inscricao-card { background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; padding: 12px; margin-bottom: 10px; }
+#dica { color: #888; margin-bottom: 10px; }
+button { background: #3498db; color: #fff; border: none; padding: 7px 14px; border-radius: 4px; cursor: pointer; margin-bottom: 10px; }
